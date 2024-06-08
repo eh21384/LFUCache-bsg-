@@ -1,0 +1,39 @@
+# Search directories for `include directives in simulations
+sim.inputs.tb_incdir: [
+  "${bsg_root}/bsg_misc",
+  # TODO: list any additional directories
+  "${bsg_root}/bsg_test",
+  "${bsg_root}/bsg_fsb",
+  "${bsg_root}/bsg_mem",
+  "${bsg_root}/bsg_dataflow",
+  "${bsg_root}/bsg_cache",
+  "${bsg_root}/testing/bsg_cache/common",
+]
+sim.inputs.tb_incdir_meta: [subst]
+
+# List of Verilog testbenches (or other sources) needed for simulation only.
+sim.inputs.tb_input_files: [
+  # TODO: list verilog files
+  # Testbench top
+  "v/bsg_lfu_tb.v",
+  # BSG utilities
+  "${bsg_root}/bsg_misc/bsg_defines.v",
+  # "${bsg_root}/bag_cache/bsg_cache.vh",
+  "${bsg_root}/bsg_test/bsg_nonsynth_clock_gen.v",
+  "${bsg_root}/bsg_test/bsg_nonsynth_reset_gen.v",
+  "${bsg_root}/bsg_fsb/bsg_fsb_node_trace_replay.v",
+  "${bsg_root}/bsg_test/bsg_nonsynth_test_rom.v",
+  "${bsg_root}/testing/bsg_cache/common/bsg_nonsynth_dma_model.v",
+  "${bsg_root}/testing/bsg_cache/common/bsg_nonsynth_random_yumi_gen.v",
+  "${bsg_root}/testing/bsg_cache/common/basic_checker_32.v",
+  "${bsg_root}/bsg_cache/bsg_cache_decode.v",
+  "${bsg_root}/bsg_mem/bsg_mem_1rw_sync_mask_write_bit.v",
+  "${bsg_root}/bsg_mem/bsg_mem_1rw_sync_mask_write_byte.v",
+]
+sim.inputs.tb_input_files_meta: [append, subst]
+
+# List of trace files for the simulation
+sim.inputs.trace_files: [
+  # TODO: list any trace files
+  "/trace_files/out/test_byte1/trace.tr"
+]
